@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<title>Motion Lineup Showdown</title>
+<style>
+:root{--bg:#080d18;--panel:#111c2e;--panel2:#17263d;--line:#273952;--cyan:#65dcff;--violet:#9674ff;--gold:#f1c96e;--muted:#9aacc5;--white:#f3f7ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#20385c 0%,#0b1424 42%,var(--bg) 75%);color:var(--white);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:11px 16px;font-weight:750;transition:.18s}button:disabled{opacity:.4;cursor:not-allowed}.primary{background:linear-gradient(110deg,#40cfff,#8874ff);color:#07101c;box-shadow:0 8px 28px #49bfff30}.secondary{background:#1b2b43;color:#dceaff;border:1px solid #344965}.wrap{max-width:1050px;margin:auto;padding:22px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #26364d;padding:8px 0 18px}.brand{display:flex;gap:12px;align-items:center;font-weight:900;letter-spacing:.12em}.mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,#17435d,#3b2c72);color:var(--cyan);font-size:24px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.2em}.pill{font-size:11px;letter-spacing:.12em;color:#91e9ff;border:1px solid #28617b;background:#10304788;border-radius:99px;padding:6px 10px}
+.hero{padding:64px 0 34px;text-align:center}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.24em;font-weight:800}.hero h1{font-size:clamp(38px,7vw,72px);line-height:1.02;letter-spacing:-.055em;margin:17px auto;max-width:800px}.hero h1 span{background:linear-gradient(90deg,#fff,#70ddff 55%,#a48aff);color:transparent;background-clip:text}.hero p{max-width:620px;margin:0 auto 25px;color:#adbed5;font-size:17px}.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}.stat,.panel{background:linear-gradient(145deg,#14243aee,#0e1929ee);border:1px solid var(--line);border-radius:18px;padding:18px}.stat strong{display:block;font-size:25px;color:var(--cyan)}.stat span,.muted{color:var(--muted);font-size:13px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 0 14px}.section-head h2{margin:0;font-size:23px}.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:14px 0}.slot{min-height:76px;background:#101c2d;border:1px dashed #40516a;border-radius:13px;display:grid;place-items:center;text-align:center;padding:8px;color:#8ea1ba;font-size:12px}.slot.filled{border:1px solid #3c9dbd;background:#123047;color:#e4f8ff}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.creator{display:flex;align-items:center;gap:12px;background:#111e30;border:1px solid #293b53;border-radius:15px;padding:13px}.avatar{width:45px;height:45px;border-radius:13px;display:grid;place-items:center;font-weight:900;font-size:19px;color:white;flex-shrink:0}.creator-info{min-width:0;flex:1}.creator-info strong{display:block}.creator-info small{display:block;color:var(--muted);font-size:12px}.creator button{padding:9px 12px;font-size:13px}.rarity{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px}.rarity label{color:var(--muted);font-size:12px}.rarity select{background:#1a2a41;color:white;border:1px solid #40536d;border-radius:8px;padding:7px}
+.tabs{display:flex;gap:8px;margin:20px 0}.tabs button.active{background:#244b67;color:#8be7ff;border:1px solid #3b92b8}.tabs button{background:#142238;color:#b8c8dd;border:1px solid #2c3d55}.leader-row{display:flex;align-items:center;gap:14px;padding:13px;border-bottom:1px solid #26364b}.rank{font-weight:900;color:var(--gold);width:28px}.leader-row strong{flex:1}.score{font-weight:850;color:var(--cyan)}.notice{border:1px solid #66552e;background:#2c2618;color:#e8d39b;border-radius:12px;padding:12px;font-size:12px;margin-top:18px}
+footer{margin-top:40px;text-align:center;color:#71849e;font-size:12px}
+@media(max-width:650px){.wrap{padding:14px 13px 40px}.hero{padding:45px 0 24px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:20px}.cards{grid-template-columns:1fr}.slots{gap:5px}.slot{min-height:68px;font-size:10px;padding:4px}.section-head{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="mark">ϟ</div><div>MOTION<small>LINEUP SHOWDOWN</small></div></div>
+  <span class="pill">COMMUNITY CONCEPT</span>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="eyebrow">THE CREATOR ARENA IS OPEN</div>
+  <h1>BUILD YOUR LINEUP.<br><span>OWN THE SHOWDOWN.</span></h1>
+  <p>Pick five creators, shape your strategy, and see how your dream team stacks up. Your arena starts here.</p>
+  <div class="hero-actions"><button class="primary" onclick="document.querySelector('#game').scrollIntoView({behavior:'smooth'})">Build my lineup ↗</button><button class="secondary" onclick="showTab('leaderboard')">Explore leaderboard</button></div>
+</section>
+<div class="stats">
+  <div class="stat"><strong>05</strong><span>Creator slots</span></div>
+  <div class="stat"><strong>4×</strong><span>Illustrative rarity tiers</span></div>
+  <div class="stat"><strong>01</strong><span>Dream lineup</span></div>
+</div>
+<section id="game" class="panel">
+  <div class="section-head"><div><div class="eyebrow">YOUR STRATEGY STARTS HERE</div><h2>Draft your five</h2></div><div class="muted" id="count">0 / 5 selected</div></div>
+  <div class="slots" id="slots"></div>
+  <div class="section-head"><div><h2>Creator cards</h2><div class="muted">Choose up to five different creators.</div></div><div class="score">Projected: <span id="total">0</span></div></div>
+  <div class="cards" id="cards"></div>
+  <div class="notice">Demo only: creator names, base scores, card rarities and rankings below are sample data. This site is not connected to Motion accounts, live scores, wallets, tournaments or prizes.</div>
+</section>
+<section class="panel" style="margin-top:18px" id="rankings">
+  <div class="section-head"><div><div class="eyebrow">THE ARENA</div><h2>Leaderboard preview</h2></div></div>
+  <div class="tabs"><button class="active" id="teamTab" onclick="showTab('team')">My lineup</button><button id="leaderTab" onclick="showTab('leaderboard')">Demo rankings</button></div>
+  <div id="leaderContent"><div class="muted">Complete your five-player lineup to see your projected team score here.</div></div>
+</section>
+</main>
+<footer>Motion Lineup Showdown · Independent fan-made concept · Not an official Motion product</footer>
+</div>
+<script>
+const creators=[
+{id:'nova',name:'Nova',handle:'@nova_web3',role:'The Strategist',base:810,color:'#765bff'},
+{id:'blaze',name:'Blaze',handle:'@blaze_onchain',role:'The Challenger',base:720,color:'#ed784f'},
+{id:'echo',name:'Echo',handle:'@echo_crypto',role:'The Analyst',base:690,color:'#20bdb0'},
+{id:'vex',name:'Vex',handle:'@vexbuilds',role:'The Creator',base:650,color:'#bd65e8'},
+{id:'atlas',name:'Atlas',handle:'@atlas_chain',role:'The Visionary',base:610,color:'#c49b42'},
+{id:'pixel',name:'Pixel',handle:'@pixeldefi',role:'The Innovator',base:540,color:'#438fe8'},
+{id:'orbit',name:'Orbit',handle:'@orbitlabs',role:'The Explorer',base:490,color:'#43a878'}
+];
+const multipliers={Common:1,Rare:1.5,Epic:2,Legendary:2.5};
+let selected=[],rarity={};
+const score=()=>creators.filter(c=>selected.includes(c.id)).reduce((s,c)=>s+c.base*multipliers[rarity[c.id]||'Common'],0);
+function render(){
+ document.getElementById('count').textContent=`${selected.length} / 5 selected`;
+ document.getElementById('total').textContent=Math.round(score()).toLocaleString();
+ document.getElementById('slots').innerHTML=Array.from({length:5},(_,i)=>{let c=creators.find(x=>x.id===selected[i]);return `<div class="slot ${c?'filled':''}">${c?`✓<br>${c.name}`:`SLOT ${i+1}<br>＋`}</div>`}).join('');
+ document.getElementById('cards').innerHTML=creators.map(c=>{let on=selected.includes(c.id);return `<article class="creator"><div class="avatar" style="background:${c.color}">${c.name[0]}</div><div class="creator-info"><strong>${c.name}</strong><small>${c.handle} · ${c.role}</small><small>Sample base score: ${c.base}</small>${on?`<div class="rarity"><label>Card tier</label><select aria-label="${c.name} card tier" onchange="setRarity('${c.id}',this.value)">${Object.keys(multipliers).map(r=>`<option ${((rarity[c.id]||'Common')===r)?'selected':''}>${r}</option>`).join('')}</select></div>`:''}</div><button class="${on?'secondary':'primary'}" ${(!on&&selected.length===5)?'disabled':''} onclick="toggle('${c.id}')">${on?'Remove':'Add'}</button></article>`}).join('');
+ if(document.getElementById('teamTab').classList.contains('active')) renderTeam();
+}
+function toggle(id){selected=selected.includes(id)?selected.filter(x=>x!==id):selected.length<5?[...selected,id]:selected;render()}
+function setRarity(id,value){rarity[id]=value;render()}
+function showTab(tab){document.getElementById('teamTab').classList.toggle('active',tab==='team');document.getElementById('leaderTab').classList.toggle('active',tab==='leaderboard');document.getElementById('leaderContent').innerHTML=tab==='team'?teamMarkup():leaderMarkup();if(tab==='leaderboard')document.getElementById('rankings').scrollIntoView({behavior:'smooth',block:'center'})}
+function teamMarkup(){return selected.length===5?`<div class="leader-row"><strong>Your demo lineup</strong><span class="score">${Math.round(score()).toLocaleString()} pts</span></div><p class="muted">Your five selected creators are ready in this local preview. Your choices stay in this page while it remains open.</p>`:`<p class="muted">Choose ${5-selected.length} more creator${5-selected.length===1?'':'s'} to complete your five-person lineup.</p>`}
+function leaderMarkup(){return [{name:'CyberWolf',score:1240},{name:'ChainMaster',score:1085},{name:'NovaX',score:970},{name:'Your demo lineup',score:Math.round(score())}].map((p,i)=>`<div class="leader-row"><span class="rank">#${i+1}</span><strong>${p.name}</strong><span class="score">${p.score.toLocaleString()} pts</span></div>`).join('')+'<p class="muted">Illustrative scores only. These are not official Motion rankings.</p>'}
+function renderTeam(){document.getElementById('leaderContent').innerHTML=teamMarkup()}
+render();
+</script>
+</body></html>
